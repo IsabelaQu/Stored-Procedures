@@ -7,28 +7,25 @@ CREATE TABLE Cursos (
   quantidade_alunos INT
 );
 
+
 -- Criando a tabela Professores
 CREATE TABLE Professores (
   id_professores 	INT auto_increment primary key unique,
   nome 				VARCHAR(150) NOT NULL,
   salario 			DECIMAL(10,2),
   data_nascimento 	DATE,
-  telefone 			VARCHAR(20),
-  id_curso 			INT,
-  disciplina_lecionada VARCHAR(150),
-  FOREIGN KEY (id_curso) REFERENCES Cursos(curso_id) -- Definindo a chave estrangeira para id_curso referenciando curso_id na tabela Cursos
+  telefone 			VARCHAR(20)
 );
 
 -- Criando a tabela Alunos
 CREATE TABLE Alunos (
   id_alunos 			INT auto_increment primary key unique,
   nome 					VARCHAR(150) NOT NULL,
-  cpf 					VARCHAR(11),
+  cpf 					VARCHAR(50),
   email 				VARCHAR(150),
-  telefone				VARCHAR(20),
-  disciplina_escolhida 	VARCHAR(150),
-  FOREIGN KEY (disciplina_escolhida) REFERENCES Cursos(nome) -- Chave estrangeira referenciando a tabela de cursos
+  telefone				VARCHAR(20)
 );
+
 
 -- Inserindo dados na tabela Alunos
 INSERT INTO Alunos (nome, cpf, email, telefone)
@@ -42,7 +39,7 @@ VALUES ('Immanuel Kant', '123.456.789-01', '', '(28) 99224-6426'),
 
 -- Inserindo dados na tabela Professores (quero chamar os cursos lecionados pelos professores para disciplina_lecionada)
 -- com cada professor atribuído a um curso da tabela de cursos
-INSERT INTO Professores (nome, salario, data_nascimento, telefone, id_curso, disciplina_lecionada)
+INSERT INTO Professores (nome, salario, data_nascimento, telefone)
 values	('Charles Darwin', 5000.00, '1965-03-15', '(15) 99663-2147'),
 		('Marie Curie', 4800.00, '1978-07-20', '(11) 9987-4123'),
 		('George Boole', 5200.00, '1982-05-10', '(18) 9979-5912'),
@@ -112,9 +109,7 @@ select * from Cursos;
 select * from Professores;
 select * from Alunos;
 
- call inserir_curso('curso', 'o que ep');
+ call inserir_curso('Matematica Basica', 5);
  call seleccionar_curso();
  call gerar_email(4);
  call aluno_fim();
-
-
