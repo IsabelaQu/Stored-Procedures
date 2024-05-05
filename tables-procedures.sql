@@ -40,18 +40,17 @@ VALUES ('Immanuel', 'Kant', '123.456.789-01', '', '(28) 99224-6426'),
 -- Inserindo dados na tabela Professores (quero chamar os cursos lecionados pelos professores para disciplina_lecionada)
 -- com cada professor atribuído a um curso da tabela de cursos
 INSERT INTO Professores (nome, salario, data_nascimento, telefone)
-values	('Charles Darwin', 5000.00, '1965-03-15', '(15) 99663-2147'),
-		('Marie Curie', 4800.00, '1978-07-20', '(11) 9987-4123'),
-		('George Boole', 5200.00, '1982-05-10', '(18) 9979-5912'),
-		('Carl Sagan', 4800.00, '1978-07-20', '(31) 1234-5678'),
-		('Mickael Scott', 5200.00, '1982-05-10', '(41) 6543-2109'),
-		('Tim Berners-Lee', 5000.00, '1965-03-15', '(55) 98765-4321'),
-		('Richard Feynman', 4800.00, '1978-07-20', '(27) 99468-5260');
+VALUES	('Charles Darwin', 5000.00, '1965-03-15', '(15) 99663-2147'),
+	('Marie Curie', 4800.00, '1978-07-20', '(11) 9987-4123'),
+	('George Boole', 5200.00, '1982-05-10', '(18) 9979-5912'),
+	('Carl Sagan', 4800.00, '1978-07-20', '(31) 1234-5678'),
+	('Mickael Scott', 5200.00, '1982-05-10', '(41) 6543-2109'),
+	('Tim Berners-Lee', 5000.00, '1965-03-15', '(55) 98765-4321'),
+	('Richard Feynman', 4800.00, '1978-07-20', '(27) 99468-5260');
 
 -- Inserindo dados na tabela Cursos
 INSERT INTO Cursos (nome, quantidade_alunos)
-VALUES
-	('Filosofia Moderna', 20),
+VALUES	('Filosofia Moderna', 20),
 	('Introdução a Computação', 15),
 	('Banco de Dados', 18),
 	('Lógica de Programação', 25),
@@ -59,10 +58,10 @@ VALUES
 	('Sistemas Operacionais', 18),
 	('Redes de Computadores', 22);
 
-
 select * from Cursos;
 select * from Professores;
 select * from Alunos;
+
 
 -- Stored Procedure para Inserir um Novo Curso
 DELIMITER $$
@@ -81,7 +80,6 @@ BEGIN
 END$$
 
 DELIMITER ;
-
 DELIMITER $$
 
 CREATE PROCEDURE Gerador_Email(
@@ -100,7 +98,6 @@ BEGIN
 END$$
 
 DELIMITER ;
-
 DELIMITER $$
 
 CREATE PROCEDURE Nome_Completo ()
