@@ -26,7 +26,7 @@ CREATE TABLE Alunos (
   telefone				VARCHAR(20)
 );
 
--- Inserindo dados na tabela Alunos
+-- Inserindo dados na tabela de Alunos
 INSERT INTO Alunos (nome, cpf, email, telefone)
 VALUES ('Immanuel Kant', '123.456.789-01', '', '(28) 99224-6426'),
 ('Alan Turing', '123.456.789-90', '', '(99) 96970-4870'),
@@ -36,7 +36,7 @@ VALUES ('Immanuel Kant', '123.456.789-01', '', '(28) 99224-6426'),
 ('Ada Lovelace', '789.012.345-67', '', '(34) 98043-4504'),
 ('Claude Shannon', '234.567.890-12', '', '(44) 98517-7707');
 
--- Inserindo dados na tabela Professores (quero chamar os cursos lecionados pelos professores para disciplina_lecionada)
+-- Inserindo dados na tabela Professores
 -- com cada professor atribuído a um curso da tabela de cursos
 INSERT INTO Professores (nome, salario, data_nascimento, telefone)
 values	('Charles Darwin', 5000.00, '1965-03-15', '(15) 99663-2147'),
@@ -47,7 +47,7 @@ values	('Charles Darwin', 5000.00, '1965-03-15', '(15) 99663-2147'),
 		('Tim Berners-Lee', 5000.00, '1965-03-15', '(55) 98765-4321'),
 		('Richard Feynman', 4800.00, '1978-07-20', '(27) 99468-5260');
 
--- Inserindo dados na tabela Cursos
+-- Inserindo dados na tabela de Cursos
 INSERT INTO Cursos (nome, quantidade_alunos)
 VALUES
 	('Filosofia Moderna', 20),
@@ -57,6 +57,11 @@ VALUES
 	('Estatística', 20),
 	('Sistemas Operacionais', 18),
 	('Redes de Computadores', 22);
+
+
+select * from Cursos;
+select * from Professores;
+select * from Alunos;
 
 -- Stored Procedure para Inserir um Novo Curso
 DELIMITER $$
