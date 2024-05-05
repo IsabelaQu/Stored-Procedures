@@ -1,3 +1,4 @@
+CREATE DATABASE universidade;
 USE universidade;
 
 -- Criando a tabela Cursos
@@ -6,7 +7,6 @@ CREATE TABLE Cursos (
   nome 				VARCHAR(150),
   quantidade_alunos INT
 );
-
 
 -- Criando a tabela Professores
 CREATE TABLE Professores (
@@ -25,7 +25,6 @@ CREATE TABLE Alunos (
   email 				VARCHAR(150),
   telefone				VARCHAR(20)
 );
-
 
 -- Inserindo dados na tabela Alunos
 INSERT INTO Alunos (nome, cpf, email, telefone)
@@ -61,6 +60,7 @@ VALUES
 
 -- Stored Procedure para Inserir um Novo Curso
 DELIMITER $$
+
 CREATE PROCEDURE Inserir_Curso(
     IN nome_curso VARCHAR(150),
     IN quantidade_alunos INT
@@ -69,8 +69,7 @@ BEGIN
     INSERT INTO Cursos (nome, quantidade_alunos) VALUES (nome_curso, quantidade_alunos);
 END$$
 
--- Stored Procedure para Selecionar Todos os Cursos
-CREATE PROCEDURE Seleciona_Cursos()
+CREATE PROCEDURE Selecionar_Cursos()
 BEGIN
     SELECT * FROM Cursos;
 END$$
@@ -79,37 +78,33 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE gerar_email(
-	in AlunoID int
+CREATE PROCEDURE Gerador_Email(
+    IN AlunoID INT
 )
-begin 
-	declare nome_aluno varchar(90);
-    declare sobrenome_aluno varchar(90);
-    declare aluno_email varchar(60);
+BEGIN
+    DECLARE nome_aluno VARCHAR(90);
+    DECLARE sobrenome_aluno VARCHAR(90);
+    DECLARE aluno_email VARCHAR(60);
     
-    select nome, sobrenome into nome_aluno, sobrenome_aluno from aluno where aluno_id = alunoID;
+    SELECT nome, sobrenome INTO nome_aluno, sobrenome_aluno FROM Alunos WHERE aluno_id = AlunoID;
     
-    set	aluno_email = concat(nome_aluno, '.', sobrenome_aluno, '@dominio.com');
+    SET aluno_email = CONCAT(nome_aluno, '.', sobrenome_aluno, '@dominio.com');
     
-    update aluno set email = aluno_email where aluno_id = alunoID;
-end$$
+    UPDATE Alunos SET email = aluno_email WHERE aluno_id = AlunoID;
+END$$
 
 DELIMITER ;
 
 DELIMITER $$
 
-create procedure aluno_fim ()
-begin
-	select * from aluno;
-    end $$
-    
- DELIMITER ;    
- 
-select * from Cursos;
-select * from Professores;
-select * from Alunos;
+CREATE PROCEDURE Nome_Completo ()
+BEGIN
+    SELECT * FROM Alunos;
+END$$
 
- call inserir_curso('Matematica Basica', 5);
- call seleccionar_curso();
- call gerar_email(4);
- call aluno_fim();
+DELIMITER ;
+
+CALL Inserir_Curso('Matematica Basica', 5);
+CALL Selecionar_Cursos();
+CALL Gerador_Email(4);
+CALL Nome_Completo();
