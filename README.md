@@ -16,6 +16,8 @@
 ## Descrição da Atividade 📓
 
 ## Modelo Lógico 📈
+![image](https://github.com/IsabelaQu/Stored-Procedures/assets/124175141/d2f5eb7e-02ab-4106-81e2-2974a4158b6d)
+
 
 ## Inserção e seleção dos Cursos
 ![image](https://github.com/IsabelaQu/Stored-Procedures/assets/124175141/70373a81-176c-4e43-b99a-ae8f4ebf0af8)
