@@ -14,6 +14,7 @@
 > Como fica o email se duas pessoas tiverem o mesmo nome e sobrenome?
 
 ## Descrição da Atividade 📓
+O exercicio pede implementação de um banco de dados para uma universidade. Ele inclui a criação de tabelas para alunos, cursos e professores, além de procedimentos armazenados para inserção de cursos, seleção de cursos e geração automática de e-mails para os alunos. As stored procedures são usadas para automatizar essas tarefas específicas, proporcionando maior eficiência e organização ao banco de dados da universidade. Além disso, o DELIMITER é utilizado para definir um novo delimitador ($$) antes da criação das stored procedures, garantindo uma sintaxe correta e evitando conflitos com o delimitador padrão (;).
 
 ## Modelo Lógico 📈
 ![image](https://github.com/IsabelaQu/Stored-Procedures/assets/124175141/d2f5eb7e-02ab-4106-81e2-2974a4158b6d)
