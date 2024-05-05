@@ -1,4 +1,4 @@
-# Tema: Stored Procedures
+![image](https://github.com/IsabelaQu/Stored-Procedures/assets/124175141/5021c2f0-1af0-43c0-b3b4-607d8881d8ce)# Tema: Stored Procedures
 
 > Crie um banco de dados para armazenar alunos, cursos e professores de uma universidade;
 >
@@ -16,3 +16,9 @@
 ## Descrição da Atividade
 
 ## Modelo Logico - Entidade e Atributos
+
+## Inserção e seleção dos Cursos
+![image](https://github.com/IsabelaQu/Stored-Procedures/assets/124175141/70373a81-176c-4e43-b99a-ae8f4ebf0af8)
+
+## Gerador de Email dos Alunos (Nome e Sobrenome)
+![image](https://github.com/IsabelaQu/Stored-Procedures/assets/124175141/83e1f92b-24bb-4191-a68c-e3e0e65e29cd)
