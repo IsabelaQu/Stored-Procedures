@@ -21,22 +21,23 @@ CREATE TABLE Professores (
 CREATE TABLE Alunos (
   id_alunos 			INT auto_increment primary key unique,
   nome 					VARCHAR(150) NOT NULL,
+  sobrenome				VARCHAR(100),
   cpf 					VARCHAR(50),
   email 				VARCHAR(150),
   telefone				VARCHAR(20)
 );
 
--- Inserindo dados na tabela de Alunos
-INSERT INTO Alunos (nome, cpf, email, telefone)
-VALUES ('Immanuel Kant', '123.456.789-01', '', '(28) 99224-6426'),
-('Alan Turing', '123.456.789-90', '', '(99) 96970-4870'),
-('George Boole', '987.654.321-10', '', '(96) 96777-6831'),
-('Lynn Margulis', '963.345.246-60', '', '(62) 99545-6646'),
-('Nicola Tesla', '567.890.123-45', '', '(31) 99755-4238'),
-('Ada Lovelace', '789.012.345-67', '', '(34) 98043-4504'),
-('Claude Shannon', '234.567.890-12', '', '(44) 98517-7707');
+-- Inserindo dados na tabela Alunos
+INSERT INTO Alunos (nome, sobrenome, cpf, email, telefone)
+VALUES ('Immanuel', 'Kant', '123.456.789-01', '', '(28) 99224-6426'),
+('Alan', 'Turing', '123.456.789-90', '', '(99) 96970-4870'),
+('George', 'Boole', '987.654.321-10', '', '(96) 96777-6831'),
+('Lynn', 'Margulis', '963.345.246-60', '', '(62) 99545-6646'),
+('Nicola', 'Tesla', '567.890.123-45', '', '(31) 99755-4238'),
+('Ada', 'Lovelace', '789.012.345-67', '', '(34) 98043-4504'),
+('Claude', 'Shannon', '234.567.890-12', '', '(44) 98517-7707');
 
--- Inserindo dados na tabela Professores
+-- Inserindo dados na tabela Professores (quero chamar os cursos lecionados pelos professores para disciplina_lecionada)
 -- com cada professor atribuído a um curso da tabela de cursos
 INSERT INTO Professores (nome, salario, data_nascimento, telefone)
 values	('Charles Darwin', 5000.00, '1965-03-15', '(15) 99663-2147'),
@@ -47,7 +48,7 @@ values	('Charles Darwin', 5000.00, '1965-03-15', '(15) 99663-2147'),
 		('Tim Berners-Lee', 5000.00, '1965-03-15', '(55) 98765-4321'),
 		('Richard Feynman', 4800.00, '1978-07-20', '(27) 99468-5260');
 
--- Inserindo dados na tabela de Cursos
+-- Inserindo dados na tabela Cursos
 INSERT INTO Cursos (nome, quantidade_alunos)
 VALUES
 	('Filosofia Moderna', 20),
@@ -91,11 +92,11 @@ BEGIN
     DECLARE sobrenome_aluno VARCHAR(90);
     DECLARE aluno_email VARCHAR(60);
     
-    SELECT nome, sobrenome INTO nome_aluno, sobrenome_aluno FROM Alunos WHERE aluno_id = AlunoID;
+    SELECT nome, sobrenome INTO nome_aluno, sobrenome_aluno FROM Alunos WHERE id_alunos = AlunoID;
     
     SET aluno_email = CONCAT(nome_aluno, '.', sobrenome_aluno, '@dominio.com');
     
-    UPDATE Alunos SET email = aluno_email WHERE aluno_id = AlunoID;
+    UPDATE Alunos SET email = aluno_email WHERE id_alunos = AlunoID;
 END$$
 
 DELIMITER ;
@@ -111,5 +112,5 @@ DELIMITER ;
 
 CALL Inserir_Curso('Matematica Basica', 5);
 CALL Selecionar_Cursos();
-CALL Gerador_Email(4);
+CALL Gerador_Email(5);
 CALL Nome_Completo();
