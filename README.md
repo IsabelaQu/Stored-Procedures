@@ -1,4 +1,3 @@
-![image](https://github.com/IsabelaQu/Stored-Procedures/assets/124175141/5021c2f0-1af0-43c0-b3b4-607d8881d8ce)# Tema: Stored Procedures
 
 > Crie um banco de dados para armazenar alunos, cursos e professores de uma universidade;
 >
