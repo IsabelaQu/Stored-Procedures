@@ -28,7 +28,7 @@ O exercicio pede implementação de um banco de dados para uma universidade. Ele
 
 
 ## Pré-requisitos
-Sql Online 
+My SQL 
 |---|
 
 <br/>
